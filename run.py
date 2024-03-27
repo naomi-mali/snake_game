@@ -132,3 +132,16 @@ while not game_over:
                 last = snake.pop()
                 win.addch(last[0], last[1], ' ')
 
+            # Draw food
+            win.addch(food[0], food[1], '@', curses.color_pair(2))  # Draw food in red color
+
+            # Draw snake head with green color
+            win.addstr(snake[0][0], snake[0][1], 'O', snake_color_pair)
+
+            # Draw snake body with green color
+            for segment in snake[1:]:
+                win.addstr(segment[0], segment[1], 'o', snake_color_pair)
+
+            win.refresh()
+
+
