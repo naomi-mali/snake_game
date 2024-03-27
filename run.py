@@ -33,7 +33,7 @@ def clear_intro():
 def draw_borders():
     win.border('|', '|', '-', '-', '+', '+', '+', '+')
 
- def draw_game_over(score):
+def draw_game_over(score):
     win.clear()
     game_over_message = """
         Game Over!
@@ -69,7 +69,7 @@ ESC = 27
 game_over = False
 
 while not game_over:
-        # Snake and food
+    # Snake and food
     snake = [(4, 4), (4, 3), (4, 2)]
     food = (6, 6)
 
@@ -131,6 +131,15 @@ while not game_over:
                 # Move snake
                 last = snake.pop()
                 win.addch(last[0], last[1], ' ')
+
+                
+            # Clear the screen
+            win.clear()
+
+            # Redraw borders
+            draw_borders()
+                
+
 
             # Draw food
             win.addch(food[0], food[1], '@', curses.color_pair(2))  # Draw food in red color
