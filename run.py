@@ -23,16 +23,25 @@ intro = """
 ########################################################
 """
 def draw_intro():
-    pass
+    win.addstr(0, 0, intro)
+    win.refresh()
 
 def clear_intro():
-    pass
+    win.clear()
+    win.refresh()
 
 def draw_borders():
-    pass
+    win.border('|', '|', '-', '-', '+', '+', '+', '+')
 
  def draw_game_over(score):
-    pass
+    win.clear()
+    game_over_message = """
+        Game Over!
+        Your Score: {}
+        To play again press Enter!
+    """.format(score)
+    win.addstr(0, 0, game_over_message)
+    win.refresh()
 
 # Setup window
 curses.initscr()
