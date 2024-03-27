@@ -46,3 +46,11 @@ curses.start_color()
 curses.init_pair(1, curses.COLOR_GREEN, curses.COLOR_BLACK)  # Define snake color as green on black background
 curses.init_pair(2, curses.COLOR_RED, curses.COLOR_BLACK)  # Define food color as red on black background
 snake_color_pair = curses.color_pair(1)  # Create a color attribute using the defined color pair
+
+while True:
+    draw_intro()
+    key = win.getch()
+    if key == 10:
+        clear_intro()
+        draw_borders()
+        break
