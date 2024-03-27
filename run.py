@@ -97,6 +97,16 @@ while not game_over:
             if paused:
                 continue  # Skip game if paused
 
+            # Game bugg error fixed when two buttons pressed caused instant game over
+            if (event == curses.KEY_LEFT and key == curses.KEY_RIGHT) or \
+               (event == curses.KEY_RIGHT and key == curses.KEY_LEFT) or \
+               (event == curses.KEY_UP and key == curses.KEY_DOWN) or \
+               (event == curses.KEY_DOWN and key == curses.KEY_UP):
+                continue
+
+            key = event if event != -1 else key
+
+
                 # Calculate next coordinates
             y = snake[0][0]
             x = snake[0][1]
@@ -162,4 +172,4 @@ while not game_over:
                 game_over = False
                 clear_intro()  # Clear intro before restarting
                 draw_borders()  # Draw borders again
-                break            
+                break
