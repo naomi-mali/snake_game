@@ -154,3 +154,12 @@ while not game_over:
             win.refresh()
 
 
+    if game_over:
+        draw_game_over(score)
+        while True:
+            key = win.getch()
+            if key == 10:  # Enter key
+                game_over = False
+                clear_intro()  # Clear intro before restarting
+                draw_borders()  # Draw borders again
+                break            
