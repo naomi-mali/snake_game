@@ -22,3 +22,15 @@ intro = """
 ########################################################
 ########################################################
 """
+def draw_intro():
+    pass
+
+def clear_intro():
+    pass
+
+def draw_borders():
+    pass
+
+draw_game_over(score):
+    pass
+        
