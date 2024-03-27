@@ -95,4 +95,19 @@ while not game_over:
                 continue  
 
             if paused:
-                continue  # Skip game logic if paused
+                continue  # Skip game if paused
+
+                # Calculate next coordinates
+            y = snake[0][0]
+            x = snake[0][1]
+            if key == curses.KEY_DOWN:
+                y += 1
+            elif key == curses.KEY_UP:
+                y -= 1
+            elif key == curses.KEY_LEFT:
+                x -= 1
+            elif key == curses.KEY_RIGHT:
+                x += 1
+
+            snake.insert(0, (y, x))
+
