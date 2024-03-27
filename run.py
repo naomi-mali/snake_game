@@ -54,3 +54,18 @@ while True:
         clear_intro()
         draw_borders()
         break
+
+# Game logic
+ESC = 27
+game_over = False
+
+while not game_over:
+        # Snake and food
+    snake = [(4, 4), (4, 3), (4, 2)]
+    food = (6, 6)
+
+    win.addch(food[0], food[1], '@', curses.color_pair(2))  # Draw food in red color
+
+    score = 0
+    key = curses.KEY_RIGHT
+    paused = False
