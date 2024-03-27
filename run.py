@@ -110,4 +110,25 @@ while not game_over:
                 x += 1
 
             snake.insert(0, (y, x))
+            # Check if snake hits the border
+            if y == 0 or y == WINDOW_HEIGHT or x == 0 or x == WINDOW_WIDTH:
+                game_over = True
+
+            # Check if snake runs over itself
+            if snake[0] in snake[1:]:
+                game_over = True
+
+            if snake[0] == food:
+                # Eat the food
+                score += 1
+                food = ()
+                while food == ():
+                    food = (randint(1, WINDOW_HEIGHT-1), randint(1, WINDOW_WIDTH-1))
+                    if food in snake:
+                        food = ()
+                win.addch(food[0], food[1], '@', curses.color_pair(2))  # Draw new food in red color
+            else:
+                # Move snake
+                last = snake.pop()
+                win.addch(last[0], last[1], ' ')
 
