@@ -78,3 +78,21 @@ while not game_over:
     score = 0
     key = curses.KEY_RIGHT
     paused = False
+
+    # Main game loop
+    while not game_over:
+        win.addstr(0, 2, 'Score ' + str(score) + ' ')
+        curses.halfdelay(1)  # Set a timeout for getch()
+        event = win.getch()
+        
+        if event == ESC:
+            game_over = True
+            break
+        
+        if not game_over:  
+            if event == ord(' '):  # Pause 
+                paused = not paused  # Toggle pause state
+                continue  
+
+            if paused:
+                continue  # Skip game logic if paused
