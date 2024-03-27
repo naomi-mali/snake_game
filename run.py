@@ -173,3 +173,6 @@ while not game_over:
                 clear_intro()  # Clear intro before restarting
                 draw_borders()  # Draw borders again
                 break
+
+# End game
+curses.endwin()                
