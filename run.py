@@ -31,6 +31,13 @@ def clear_intro():
 def draw_borders():
     pass
 
-draw_game_over(score):
+ def draw_game_over(score):
     pass
-        
+
+# Setup window
+curses.initscr()
+win = curses.newwin(WINDOW_HEIGHT + 2, WINDOW_WIDTH + 2, 0, 0)  # Adding 2 to each dimension for border
+win.keypad(1)
+curses.noecho()
+curses.curs_set(0)
+
