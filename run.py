@@ -1,5 +1,8 @@
 import curses
 from random import randint
+import time
+
+
 
 WINDOW_WIDTH = 60
 WINDOW_HEIGHT = 20
@@ -115,11 +118,25 @@ def game_loop():
                 snake.insert(0, (y, x))
                 # Check if snake hits the border
                 if y == 0 or y == WINDOW_HEIGHT or x == 0 or x == WINDOW_WIDTH:
+                    # Flash snake and food
+                    flash_object(snake)
+                    flash_object([food])
+
                     game_over = True
+                    draw_game_over(score)  # Display game over message
+                    time.sleep(4)  # Wait for 4 seconds
+                    break
+
 
                 # Check if snake runs over itself
                 if snake[0] in snake[1:]:
+                    # Flash snake and food
+                    flash_object(snake)
+                    flash_object([food])                  
                     game_over = True
+                    draw_game_over(score)  # Display game over message
+                    time.sleep(4)  # Wait for 4 seconds
+                    break                   
 
                 if snake[0] == food:
                     # Eat the food
@@ -153,13 +170,21 @@ def game_loop():
 
                 win.refresh()
 
-        draw_game_over(score)
-        while True:
-            key = win.getch()
-            if key == 10:  # Enter key
-                return True
-
     return True
+
+def flash_object(obj):
+    for _ in range(4):
+        for segment in obj:
+            win.addstr(segment[0], segment[1], 'X')
+        win.refresh()
+        time.sleep(0.1)
+        for segment in obj:
+            if segment == obj[0]:
+                win.addstr(segment[0], segment[1], 'O', snake_color_pair)
+            else:
+                win.addch(segment[0], segment[1], '@', curses.color_pair(2))
+        win.refresh()
+        time.sleep(0.1)    
 
 while True:
     draw_intro()
