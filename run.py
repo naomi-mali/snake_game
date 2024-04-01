@@ -5,29 +5,41 @@ import time
 WINDOW_WIDTH = 85
 WINDOW_HEIGHT = 30
 
-# Intro
+#Intro
 intro = """
-   #######  ##     #     ##     #    ##  #######
-   #        # #    #    #  #    #   ##   #
-   #        #  #   #   #    #   #  ##    #
-   #######  #   #  #  ########  ####     ##### 
-         #  #    # #  #      #  #  ##    #
-         #  #     ##  #      #  #   ##   #
-   #######  #      #  #      #  #    ##  #######
+ ____              _           ____                       
+/ ___| _ __   __ _| | _____   / ___| __ _ _ __ ___   ___  
+\___ \| '_ \ / _` | |/ / _ \ | |  _ / _` | '_ ` _ \ / _ \ 
+ ___) | | | | (_| |   <  __/ | |_| | (_| | | | | | |  __/ 
+|____/|_| |_|\__,_|_|\_\___|  \____|\__,_|_| |_| |_|\___| 
+ 
+                          ___   
+                         / o o\ 
+         *               \   ---<     @
+          \\              \  /
+           \ \ ___________/ /
+            \  ___________ /
 
-   #*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*#
-   #############| Press Enter to Play |############
-   #############| Press Space to Pause |###########
-   #############| Press Esc to Exit |##############
-   #*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*#
+   *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+   ~~~~~~~~~~~~~| Press Enter to Play |~~~~~~~~~~~~
+   ~~~~~~~~~~~~~| Press Space to Pause |~~~~~~~~~~~
+   ~~~~~~~~~~~~~| Press Esc to Exit |~~~~~~~~~~~~~~
+   -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 
-########################################################
-########################################################
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 """
 
 def draw_intro():
     win.clear()
-    win.addstr(0, 0, intro)
+    # Calculate position to center the intro message
+
+    y_center = (WINDOW_HEIGHT + 2 - intro.count('\n')) // 2
+
+    x_center = (WINDOW_WIDTH + 2 - max(len(line) for line in intro.split('\n'))) // 2
+
+    for i, line in enumerate(intro.split('\n')):
+
+        win.addstr(y_center + i, x_center, line)    
     win.refresh()
 
 def clear_intro():
@@ -146,7 +158,7 @@ def game_loop():
 
                     game_over = True
                     draw_game_over(score)  # Display game over message
-                    time.sleep(4)  # Wait for 4 seconds
+                    time.sleep(1.8)  # Wait for 1.8 seconds
                     break
 
 
