@@ -2,8 +2,8 @@ import curses
 from random import randint
 import time
 
-WINDOW_WIDTH = 60
-WINDOW_HEIGHT = 20
+WINDOW_WIDTH = 85
+WINDOW_HEIGHT = 30
 
 # Intro
 intro = """
