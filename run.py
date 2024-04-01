@@ -40,16 +40,39 @@ def draw_borders():
 def draw_game_over(score):
     win.clear()
     game_over_message = """
-        Game Over!
+
+  _____          __  __ ______    ______      ________ _____  
+ / ____|   /\   |  \/  |  ____|  / __ \ \    / /  ____|  __ \ 
+| |  __   /  \  | \  / | |__    | |  | \ \  / /| |__  | |__) |
+| | |_ | / /\ \ | |\/| |  __|   | |  | |\ \/ / |  __| |  _  / 
+| |__| |/ ____ \| |  | | |____  | |__| | \  /  | |____| | \ \ 
+ \_____/_/    \_\_|  |_|______|  \____/   \/   |______|_|  \_\ 
+    
         Your Score: {}
         To play again press Enter!
     """.format(score)
-    win.addstr(0, 0, game_over_message)
+    
+
+    # Calculate the center position for the message
+
+    y_center = (WINDOW_HEIGHT + 2) // 2 - len(game_over_message.split('\n')) // 2
+
+    x_center = (WINDOW_WIDTH + 2 - max(len(line) for line in game_over_message.split('\n'))) // 2
+
+    # Print the game over message at the center of the screen
+
+    for i, line in enumerate(game_over_message.split('\n')):
+
+        win.addstr(y_center + i, x_center, line, curses.A_BOLD)
+
+
+
+ 
     win.refresh()
 
 # Setup window
 curses.initscr()
-win = curses.newwin(WINDOW_HEIGHT + 2, WINDOW_WIDTH + 2, 0, 0)  # Adding 2 to each dimension for border
+win = curses.newwin(WINDOW_HEIGHT + 2, WINDOW_WIDTH + 2, 0, 0)  
 win.keypad(1)
 curses.noecho()
 curses.curs_set(0)
