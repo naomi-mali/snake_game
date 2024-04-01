@@ -2,8 +2,6 @@ import curses
 from random import randint
 import time
 
-
-
 WINDOW_WIDTH = 60
 WINDOW_HEIGHT = 20
 
@@ -19,6 +17,7 @@ intro = """
 
    #*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*#
    #############| Press Enter to Play |############
+   #############| Press Space to Pause |###########
    #############| Press Esc to Exit |##############
    #*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*#
 
