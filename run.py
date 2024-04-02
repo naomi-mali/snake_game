@@ -42,8 +42,18 @@ def clear_intro():
     win.clear()
     win.refresh()
 
-def draw_borders():
-    win.border('|', '|', '-', '-', '+', '+', '+', '+')
+def draw_borders(score):
+    win.clear()
+    # Draw top border with score
+    win.addstr(0, 0, "+" + "-" * (WINDOW_WIDTH - 2) + "+")
+    win.addstr(0, 1, f"Score: {score}", curses.A_BOLD)
+    # Draw bottom border
+    win.addstr(WINDOW_HEIGHT + 1, 0, "+" + "-" * (WINDOW_WIDTH - 2) + "+")
+    # Draw side borders
+    for i in range(1, WINDOW_HEIGHT + 1):
+        win.addstr(i, 0, "|")
+        win.addstr(i, WINDOW_WIDTH - 1, "|")
+    win.refresh()
 
 def draw_game_over(score):
     win.clear()
@@ -59,7 +69,6 @@ def draw_game_over(score):
         Your Total Score: {}
         To play again press Enter!
     """.format(score)
-    
 
     # Calculate the center position for the message
     y_center = (WINDOW_HEIGHT + 2) // 2 - len(game_over_message.split('\n')) // 2
@@ -68,7 +77,12 @@ def draw_game_over(score):
     # Print the game over message at the center of the screen
     for i, line in enumerate(game_over_message.split('\n')):
         win.addstr(y_center + i, x_center, line, curses.A_BOLD)
+    win.refresh()
 
+# Function to display score
+def display_score(score):
+    score_str = f"Score: {score}"
+    win.addstr(0, WINDOW_WIDTH - len(score_str) - 2, score_str, curses.A_BOLD)  # Display score in the top-right corner
     win.refresh()
 
 # Setup window
@@ -98,14 +112,16 @@ LEVELS = [
     {"speed": 21, "obstacles": 27, "point_threshold": 50}, # Level 10
 ]
 
-
 def game_loop():
-    global current_level, current_score
+    global current_level, current_score, total_score
     # Game logic
     ESC = 27
     game_over = False
 
     while not game_over:
+        # Reset score at the beginning of each level
+        current_score = 0
+
         # Snake and food
         snake = [(4, 4), (4, 3), (4, 2)]
         food = (6, 6)
@@ -133,7 +149,7 @@ def game_loop():
             # Snake speed based on current level
             curses.halfdelay(snake_speed)
             event = win.getch()
-            
+
             if event == ESC:  # Check if Escape key is pressed
                 return False
 
@@ -174,10 +190,10 @@ def game_loop():
                     flash_object([food])
 
                     game_over = True
-                    draw_game_over(score) # Display game over message
+                    total_score += score
+                    draw_game_over(total_score)  # Display game over message
                     time.sleep(1.8)  # Wait for 1.8 seconds
                     break
-
 
                 # Check if snake runs over itself
                 if snake[0] in snake[1:]:
@@ -185,18 +201,19 @@ def game_loop():
                     flash_object(snake)
                     flash_object([food])
                     game_over = True
-                    draw_game_over(score)  # Display game over message
+                    total_score += score
+                    draw_game_over(total_score)  # Display game over message
                     time.sleep(4)  # Wait for 4 seconds
-                    break                   
+                    break 
 
                 if snake[0] == food:
                     # Eat the food
                     score += 1
+                    current_score += 1  # Increment current score
+                    total_score += 1
                     food = ()
-                    while food == (): or food in snake or food in obstacles:
+                    while food == () or food in snake or food in obstacles:
                         food = (randint(1, WINDOW_HEIGHT-1), randint(1, WINDOW_WIDTH-1))
-                        if food in snake:
-                            food = ()
                     win.addch(food[0], food[1], '@', curses.color_pair(2))  # Draw new food in red color
                 else:
                     # Move snake
@@ -207,7 +224,7 @@ def game_loop():
                 win.clear()
 
                 # Redraw borders
-                draw_borders()
+                draw_borders(total_score)
 
                 # Draw food
                 win.addch(food[0], food[1], '@', curses.color_pair(2))  # Draw food in red color
@@ -215,7 +232,6 @@ def game_loop():
                 # Draw obstacles
                 for obstacle in obstacles:
                     win.addstr(obstacle[0], obstacle[1], 'X', curses.color_pair(1))  # Draw obstacle in green color
-
 
                 # Draw snake head with green color
                 win.addstr(snake[0][0], snake[0][1], 'O', snake_color_pair)
@@ -266,16 +282,19 @@ def flash_object(obj):
             else:
                 win.addch(segment[0], segment[1], '@', curses.color_pair(2))
         win.refresh()
-        time.sleep(0.1)    
+        time.sleep(0.1)
 
 while True:
     draw_intro()
     key = win.getch()
     if key == 10:
         clear_intro()
-        draw_borders()
-        if not game_loop():
-            break
+        draw_borders(0)  # Initialize score to 0
+        current_level = 0  # Reset the level
+        current_score = 0  # Reset the score
+        total_score = 0    # Initialize total score
+        while game_loop():  # Keep starting new games until the player decides to exit
+            pass
     elif key == 27:  # Esc key during intro screen
         break
 
