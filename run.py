@@ -204,6 +204,18 @@ def game_loop():
                     total_score += score
                     draw_game_over(total_score)  # Display game over message
                     time.sleep(4)  # Wait for 4 seconds
+                    break
+
+                # Check if snake collides with any obstacle
+                if snake[0] in obstacles:
+                    # Flash snake and obstacle
+                    flash_object(snake)
+                    flash_object([snake[0]])
+                    flash_object([obstacle])
+                    game_over = True
+                    total_score += score
+                    draw_game_over(total_score)  # Display game over message
+                    time.sleep(1.8)  # Wait for 1.8 seconds
                     break 
 
                 if snake[0] == food:
