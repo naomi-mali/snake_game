@@ -2,6 +2,16 @@ import curses
 from random import randint
 import time
 
+import sys
+
+def hide_cursor():
+    sys.stdout.write("\033[?25l")  # ANSI escape code to hide the cursor
+    sys.stdout.flush()
+
+# Call hide_cursor function to hide the cursor
+hide_cursor()
+
+
 WINDOW_WIDTH = 85
 WINDOW_HEIGHT = 30
 
@@ -90,7 +100,7 @@ curses.initscr()
 win = curses.newwin(WINDOW_HEIGHT + 2, WINDOW_WIDTH + 2, 0, 0)  
 win.keypad(1)
 curses.noecho()
-curses.curs_set(0)
+#curses.curs_set(0)
 
 # Initialize colors
 curses.start_color()
