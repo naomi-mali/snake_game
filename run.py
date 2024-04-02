@@ -13,7 +13,7 @@ hide_cursor()
 
 
 WINDOW_WIDTH = 85
-WINDOW_HEIGHT = 30
+WINDOW_HEIGHT = 20
 
 # Intro
 intro = """
