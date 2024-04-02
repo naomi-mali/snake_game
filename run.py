@@ -96,7 +96,9 @@ curses.curs_set(0)
 curses.start_color()
 curses.init_pair(1, curses.COLOR_GREEN, curses.COLOR_BLACK)  # Define snake color as green on black background
 curses.init_pair(2, curses.COLOR_RED, curses.COLOR_BLACK)  # Define food color as red on black background
+curses.init_pair(3, curses.COLOR_YELLOW, curses.COLOR_BLACK)  # Define obstacle color as yellow on black background
 snake_color_pair = curses.color_pair(1)
+obstacle_color_pair = curses.color_pair(3)
 
 # Define levels with their respective parameters
 LEVELS = [
@@ -124,8 +126,9 @@ def game_loop():
 
         # Snake and food
         snake = [(4, 4), (4, 3), (4, 2)]
-        food = (6, 6)
-
+        food = ()
+        while food == () or food in snake or food[0] <= 1 or food[1] <= 1 or food[0] >= WINDOW_HEIGHT - 2 or food[1] >= WINDOW_WIDTH - 2:
+            food = (randint(2, WINDOW_HEIGHT - 3), randint(2, WINDOW_WIDTH - 3))
        # Use parameters from the current level
         level_params = LEVELS[current_level]
         snake_speed = level_params["speed"]
@@ -216,7 +219,7 @@ def game_loop():
                     total_score += score
                     draw_game_over(total_score)  # Display game over message
                     time.sleep(1.8)  # Wait for 1.8 seconds
-                    break 
+                    break
 
                 if snake[0] == food:
                     # Eat the food
@@ -224,8 +227,8 @@ def game_loop():
                     current_score += 1  # Increment current score
                     total_score += 1
                     food = ()
-                    while food == () or food in snake or food in obstacles:
-                        food = (randint(1, WINDOW_HEIGHT-1), randint(1, WINDOW_WIDTH-1))
+                    while food == () or food in snake or food in obstacles or food[0] <= 1 or food[1] <= 1 or food[0] >= WINDOW_HEIGHT - 2 or food[1] >= WINDOW_WIDTH - 2:
+                        food = (randint(2, WINDOW_HEIGHT - 3), randint(2, WINDOW_WIDTH - 3))
                     win.addch(food[0], food[1], '@', curses.color_pair(2))  # Draw new food in red color
                 else:
                     # Move snake
@@ -243,7 +246,7 @@ def game_loop():
 
                 # Draw obstacles
                 for obstacle in obstacles:
-                    win.addstr(obstacle[0], obstacle[1], 'X', curses.color_pair(1))  # Draw obstacle in green color
+                    win.addstr(obstacle[0], obstacle[1], 'X', obstacle_color_pair)  # Draw obstacle in yellow color
 
                 # Draw snake head with green color
                 win.addstr(snake[0][0], snake[0][1], 'O', snake_color_pair)
