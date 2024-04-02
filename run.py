@@ -12,7 +12,7 @@ def hide_cursor():
 hide_cursor()
 
 
-WINDOW_WIDTH = 70
+WINDOW_WIDTH = 75
 WINDOW_HEIGHT = 23
 
 # Intro
