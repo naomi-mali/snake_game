@@ -107,8 +107,10 @@ curses.start_color()
 curses.init_pair(1, curses.COLOR_GREEN, curses.COLOR_BLACK)  # Define snake color as green on black background
 curses.init_pair(2, curses.COLOR_RED, curses.COLOR_BLACK)  # Define food color as red on black background
 curses.init_pair(3, curses.COLOR_YELLOW, curses.COLOR_BLACK)  # Define obstacle color as yellow on black background
+curses.init_pair(4, curses.COLOR_BLACK, curses.COLOR_BLACK)  # Define black color on black background
 snake_color_pair = curses.color_pair(1)
 obstacle_color_pair = curses.color_pair(3)
+background_color_pair = curses.color_pair(4)
 
 # Define levels with their respective parameters
 LEVELS = [
