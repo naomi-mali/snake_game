@@ -220,7 +220,6 @@ def game_loop():
                     draw_game_over(total_score)  # Display game over message
                     time.sleep(1.8)  # Wait for 1.8 seconds
                     break
-
                 if snake[0] == food:
                     # Eat the food
                     score += 1
