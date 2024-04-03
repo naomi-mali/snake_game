@@ -176,13 +176,17 @@ Implementing some or all of these features can greatly enhance the gameplay expe
 ### Learning materials and Code
  All content from Online Course in Full Stack Software Development especially videos about Portfolio Project 3 and ReadME from Code Instituet.
 
-[codereview](https://codereview.stackexchange.com/questions/104524/simple-console-snake-game-in-python) 
-[youtube](https://www.youtube.com/watch?v=XKHEtdqhLK8&t=41185s)
-[geeksforgeeks](https://www.geeksforgeeks.org/snake-game-in-python-using-pygame-module/)
-[geeksforgeeks](https://www.geeksforgeeks.org/snake-game-in-python-using-pygame-module/)
-[geeksforgeeks](https://www.geeksforgeeks.org/snake-game-using-tkinter-python/)
-[geeksforgeeks](https://www.geeksforgeeks.org/create-a-snake-game-using-turtle-in-python/)
-[stackoverflow](https://stackoverflow.com/)
+[codereview](https://codereview.stackexchange.com/questions/104524/simple-console-snake-game-in-python) For Snake Game functional in a console
+
+[youtube](https://www.youtube.com/watch?v=XKHEtdqhLK8&t=41185s) To build functions in the game according a Snake Game
+
+[geeksforgeeks](https://www.geeksforgeeks.org/snake-game-in-python-using-pygame-module/) For building step by step a Snake Game 
+
+[geeksforgeeks](https://www.geeksforgeeks.org/snake-game-in-python-using-pygame-module/) For building step by step a Snake Game 
+
+[geeksforgeeks](https://www.geeksforgeeks.org/snake-game-using-tkinter-python/) For building step by step a Snake Game 
+
+[geeksforgeeks](https://www.geeksforgeeks.org/create-a-snake-game-using-turtle-in-python/) For building step by step a Snake Game  
 
 ## Acknowledgments
 
