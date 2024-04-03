@@ -1,4 +1,7 @@
-# Snake Game
+ # Snake Game
+
+ ![Am I Responsive_](https://github.com/naomi-mali/test/assets/148251951/aae6af93-e1ba-4857-b57b-1b03f95c04ac)
+
 
 ## Project Overview
 As a classic snake game, this implementation pays homage to the timeless appeal of retro arcade games, evoking feelings of nostalgia among players who grew up with similar titles. While appealing to players familiar with classic snake games, this version also introduces the genre to new generations of players, ensuring its enduring popularity and relevance.
@@ -75,3 +78,107 @@ Engaging Audiovisuals: While the game is text-based, the combination of ASCII ar
 High Replay Value: The addictive nature of the gameplay, coupled with the desire to achieve higher scores and reach new levels, encourages players to replay the game multiple times.
 Endless Mode: While the game features predefined levels, players can continue playing indefinitely by starting new games after reaching the highest level, providing endless entertainment and challenge.
 
+### Flow Chart
+![Untitled Diagram drawio](https://github.com/naomi-mali/test/assets/148251951/83974358-20a4-4da4-a76a-6849c4afca2e)
+
+### Languages used
+Python is used for the project.
+
+## Software used
+Draw.io - To create a Flow Chart. 
+Gitpod - To code the project. 
+Git - For version control. 
+Github - To store to project. 
+Heroku – To deploy the project. 
+Ci Python Linter – To validate the python code. 
+
+## Testing and known issues
+### Testing
+
+    The code has been submitted to the Code Institute PEP8 lint and all major issues were fixed. The ones that remain are due to strings being too long, or a character in a docstring that the lint recognizes erroneously as an escape character. With regard to the strings length, it has been decided that they are to remain as is for design purposes.
+
+### Manual testing
+I have tested all input options, valid input and non-valid input by the user. These tests were carried out throughout the entire project process. Finally, no more errors occurred. The detailed error messages to the user are also explained in the features section. A description of the bugs can be found in solved and unsolved bugs.
+
+![CI Python Linter (6)](https://github.com/naomi-mali/test/assets/148251951/4894b126-2e77-4623-98c2-80969fef4c04)
+![CI Python Linter (5)](https://github.com/naomi-mali/test/assets/148251951/11f3340b-acb3-4785-ba2c-6d5c841ad7db)
+![CI Python Linter (4)](https://github.com/naomi-mali/test/assets/148251951/81d17dad-0d85-4aba-8363-67a0a5527151)
+![CI Python Linter (3)](https://github.com/naomi-mali/test/assets/148251951/1646912a-84ed-4008-8208-7cf8488e4ec0)
+
+### Solved bugs
+
+![Python Terminal by Code Institute](https://github.com/naomi-mali/test/assets/148251951/c0afe988-2a34-4865-8287-9677b5c26b3d)
+
+The issue with the curses.curs_set(0) function call occurred due to various reasons, such as compatibility issues or lack of support in certain environments. By replacing it with the code using ANSI escape codes,I am providing a more portable and reliable solution for hiding the cursor in the terminal.
+
+![run py - snake_game - Gitpod Code (6)](https://github.com/naomi-mali/test/assets/148251951/4cc048c7-0a5f-43e6-9e59-8c7104258109)
+
+### Terminal Screen Flickering
+When testing I saw that there was a "strobing" effect, I put this down to running it in a console environment like Heroku's online terminal. I think it is due to the game's design to clear and redraw the entire screen every game tick. I found out from my mentor that this approach, while straight forward for ensuring that the game state is accurately represented at all times, can lead to noticeable flickering or "strobing" because of the rapid clearing and redrawing of the screen content. My  mentor said that this effect would be more pronounced in environments with slower refresh rates or where there's a significant delay between sending output and it being displayed, such as in remote terminal sessions in Heroku. He said there were ways in which to make it better but for purposes of this project that would be more advanced coding, maybe something to learn later after the course.
+
+## Deployment 
+The project was coded with gitpod, stored on github and then deployed on Heroku. That is how the deployment was done:
+
+Create a requirements.txt with the terminal comand: pip3 freeze > requirements.txt
+Pushed the latested code and requirements.txt on to Github.
+Log in to Heroku or create an account first.
+Click on the New Button on the dashboard in the top right corner.
+Click on "Create new app".
+Select the relevant region. In my case, I chose Europe.
+Select an app name that does not yet exist on heroku.
+Click on the "Create app" button.
+Click on the settings tab.
+Scroll to the buildpacks and click on "add buildpack," select "Python," and click "Add Buildpack".
+Repeat last step and add "node.js" buildpack.
+IMPORTANT: First the python buildpack must be displayed, then the pack from node.js. It can be moved via drag and drop.
+Click on the deploy tab.
+Click on Github as the deployment method.
+Search for the repository name and click on conncet.
+Select Enable Automatic Deploys"
+Click on "Deploy Branch"
+Click on the "View" button which leads to the deployed app
+
+## Future Development Opportunities 
+
+ The Snake Game is a simple terminal-based game, implemented using the curses module in Python. Here are some potential future developments for enhancing the game:
+
+Levels with Increasing Difficulty: Currently, the game has predefined levels with fixed parameters such as snake speed, number of obstacles, and point thresholds. You could introduce a more dynamic difficulty curve, where each level gradually increases in difficulty, making the game more challenging as the player progresses.
+
+Customizable Settings: Allow players to customize game settings such as snake speed, number of obstacles, and point thresholds. This adds flexibility and allows players to tailor the game to their preferences or skill level.
+
+Power-Ups and Special Abilities: Introduce power-ups or special abilities that the snake can collect during gameplay. For example, a power-up that increases the snake's speed temporarily or one that makes the snake temporarily invincible to obstacles.
+
+Different Game Modes: Implement different game modes to provide variety and replay value. For example, a timed mode where the player must achieve a high score within a limited time or a survival mode where the goal is to survive as long as possible against increasing difficulty.
+
+Sound Effects and Music: Add sound effects for actions such as eating food, colliding with obstacles, or leveling up. You could also include background music to enhance the gaming experience.
+
+Graphics and Animation: While curses provides basic terminal-based graphics, you could explore more advanced graphics libraries like Pygame or Kivy to create more visually appealing graphics and animations for the game.
+
+Multiplayer Support: Implement multiplayer support, allowing multiple players to compete against each other either locally or over a network.
+
+High Score Tracking: Implement a high score system to keep track of the highest scores achieved by players. This adds competitiveness and motivation for players to strive for higher scores.
+
+Tutorial or Help Section: Include a tutorial or help section within the game to guide new players on how to play and understand game mechanics.
+
+Bug Fixes and Performance Optimization: Continuously test and debug the game to fix any issues or bugs. Additionally, optimize the code for better performance, especially for larger game states or when running on lower-end systems.
+
+Implementing some or all of these features can greatly enhance the gameplay experience and make the Snake game more engaging and enjoyable for players.
+
+## Credits
+
+### Learning materials and Code
+ All content from Online Course in Full Stack Software Development especially videos about Portfolio Project 3 and ReadME from Code Instituet.
+
+[codereview](https://codereview.stackexchange.com/questions/104524/simple-console-snake-game-in-python) 
+[youtube](https://www.youtube.com/watch?v=XKHEtdqhLK8&t=41185s)
+[geeksforgeeks](https://www.geeksforgeeks.org/snake-game-in-python-using-pygame-module/)
+[geeksforgeeks](https://www.geeksforgeeks.org/snake-game-in-python-using-pygame-module/)
+[geeksforgeeks](https://www.geeksforgeeks.org/snake-game-using-tkinter-python/)
+[geeksforgeeks](https://www.geeksforgeeks.org/create-a-snake-game-using-turtle-in-python/)
+[stackoverflow](https://stackoverflow.com/)
+
+## Acknowledgments
+
+My Code Institute mentor Spencer Barriball.
+The Tutor Support team at Code Institute.
+To all people who make their knowledge available for free in the internet, especially on youtube.
