@@ -6,6 +6,7 @@ import sys
 
 
 def hide_cursor():
+    """ Hide the cursor in the terminal """
     sys.stdout.write("\033[?25l")
     sys.stdout.flush()
 
@@ -45,6 +46,7 @@ intro = """
 
 
 def draw_intro():
+    """ Draw the introduction message on the screen """
     win.clear()
     # Calculate position to center the intro message
     y_center = (WINDOW_HEIGHT + 2 - intro.count('\n')) // 2
@@ -55,11 +57,17 @@ def draw_intro():
 
 
 def clear_intro():
+    """ Clear the introduction message from the screen """
     win.clear()
     win.refresh()
 
 
 def draw_borders(score):
+    """ 
+    Draw borders around the game window and display the current score.
+    Parameters:
+        score (int): The current score to be displayed. 
+    """
     win.clear()
     # Draw top border with score
     win.addstr(0, 0, "+" + "-" * (WINDOW_WIDTH - 2) + "+")
@@ -74,6 +82,11 @@ def draw_borders(score):
 
 
 def draw_game_over(score):
+    """
+    Display the game over message with the final score.
+    Parameters:
+        score (int): The final score of the player.
+    """
     win.clear()
     game_over_message = """
 
@@ -100,6 +113,11 @@ def draw_game_over(score):
 
 # Function to display score
 def display_score(score):
+    """
+    Display the current score on the game window.
+    Parameters:
+        score (int): The current score to be displayed.
+    """
     score_str = f"Score: {score}"
     # Display score in the top-right corner
     win.addstr(0, WINDOW_WIDTH - len(score_str) - 2, score_str, curses.A_BOLD)
@@ -142,6 +160,11 @@ LEVELS = [
 
 
 def game_loop():
+    """
+    The main game loop controlling the gameplay.
+    Returns:
+        bool: True if the player decides to play again, False otherwise.
+    """
     global current_level, current_score, total_score
     # Game logic
     ESC = 27
@@ -301,6 +324,12 @@ def game_loop():
 
 
 def draw_level_message(message):
+    """
+    Display a message indicating the player has leveled up.
+
+    Parameters:
+        message (str): The message to be displayed.
+    """    
     # Clear the screen
     win.clear()
 
@@ -315,6 +344,13 @@ def draw_level_message(message):
 
 
 def flash_object(obj):
+    """
+    Flash an object on the screen for visual effect.
+
+    Parameters:
+        obj (list of tuples): The object to be flashed on the screen,
+        represented by a list of coordinate tuples.
+    """
     for _ in range(4):
         for segment in obj:
             win.addstr(segment[0], segment[1], 'X')
@@ -328,6 +364,8 @@ def flash_object(obj):
         win.refresh()
         time.sleep(0.1)
 
+def gameloop():
+    """The main game loop controlling the flow of the game """
 
 while True:
     draw_intro()
@@ -346,3 +384,6 @@ while True:
 
 # End game
 curses.endwin()
+
+if __name__ == '__main__':
+	gameloop()
