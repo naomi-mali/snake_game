@@ -12,8 +12,8 @@ def hide_cursor():
 hide_cursor()
 
 
-WINDOW_WIDTH = 78
-WINDOW_HEIGHT = 23
+WINDOW_WIDTH = 80
+WINDOW_HEIGHT = 22
 
 # Intro
 intro = """
@@ -34,6 +34,8 @@ intro = """
    ~~~~~~~~~~~~~| Press Enter to Play |~~~~~~~~~~~~
    ~~~~~~~~~~~~~| Press Space to Pause |~~~~~~~~~~~
    ~~~~~~~~~~~~~| Press Esc to Exit |~~~~~~~~~~~~~~
+   ~~~~~~~~~~~~~| Eat @ to level up |~~~~~~~~~~~~~~
+   ~~~~| Avoid X obstacles and borders to win|~~~~~
    -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
