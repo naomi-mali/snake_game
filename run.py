@@ -4,9 +4,11 @@ import time
 
 import sys
 
+
 def hide_cursor():
-    sys.stdout.write("\033[?25l")  # ANSI escape code to hide the cursor
+    sys.stdout.write("\033[?25l")
     sys.stdout.flush()
+
 
 # Call hide_cursor function to hide the cursor
 hide_cursor()
@@ -41,6 +43,7 @@ intro = """
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 """
 
+
 def draw_intro():
     win.clear()
     # Calculate position to center the intro message
@@ -50,9 +53,11 @@ def draw_intro():
         win.addstr(y_center + i, x_center, line)
     win.refresh()
 
+
 def clear_intro():
     win.clear()
     win.refresh()
+
 
 def draw_borders(score):
     win.clear()
@@ -66,6 +71,7 @@ def draw_borders(score):
         win.addstr(i, 0, "|")
         win.addstr(i, WINDOW_WIDTH - 1, "|")
     win.refresh()
+
 
 def draw_game_over(score):
     win.clear()
@@ -91,25 +97,31 @@ def draw_game_over(score):
         win.addstr(y_center + i, x_center, line, curses.A_BOLD)
     win.refresh()
 
+
 # Function to display score
 def display_score(score):
     score_str = f"Score: {score}"
-    win.addstr(0, WINDOW_WIDTH - len(score_str) - 2, score_str, curses.A_BOLD)  # Display score in the top-right corner
+    # Display score in the top-right corner
+    win.addstr(0, WINDOW_WIDTH - len(score_str) - 2, score_str, curses.A_BOLD)
     win.refresh()
+
 
 # Setup window
 curses.initscr()
-win = curses.newwin(WINDOW_HEIGHT + 2, WINDOW_WIDTH + 2, 0, 0)  
+win = curses.newwin(WINDOW_HEIGHT + 2, WINDOW_WIDTH + 2, 0, 0)
 win.keypad(1)
 curses.noecho()
-#curses.curs_set(0)
 
 # Initialize colors
 curses.start_color()
-curses.init_pair(1, curses.COLOR_GREEN, curses.COLOR_BLACK)  # Define snake color as green on black background
-curses.init_pair(2, curses.COLOR_RED, curses.COLOR_BLACK)  # Define food color as red on black background
-curses.init_pair(3, curses.COLOR_YELLOW, curses.COLOR_BLACK)  # Define obstacle color as yellow on black background
-curses.init_pair(4, curses.COLOR_BLACK, curses.COLOR_BLACK)  # Define black color on black background
+# Define snake color as green on black background
+curses.init_pair(1, curses.COLOR_GREEN, curses.COLOR_BLACK)
+# Define food color as red on black background
+curses.init_pair(2, curses.COLOR_RED, curses.COLOR_BLACK)
+# Define obstacle color as yellow on black background
+curses.init_pair(3, curses.COLOR_YELLOW, curses.COLOR_BLACK)
+# Define black color on black background)
+curses.init_pair(4, curses.COLOR_BLACK, curses.COLOR_BLACK)
 snake_color_pair = curses.color_pair(1)
 obstacle_color_pair = curses.color_pair(3)
 background_color_pair = curses.color_pair(4)
@@ -118,15 +130,16 @@ background_color_pair = curses.color_pair(4)
 LEVELS = [
     {"speed": 3, "obstacles": 5, "point_threshold": 5},  # Level 1
     {"speed": 5, "obstacles": 7, "point_threshold": 10},  # Level 2
-    {"speed": 7, "obstacles": 10, "point_threshold": 15}, # Level 3
-    {"speed": 9, "obstacles": 13, "point_threshold": 20}, # Level 4
-    {"speed": 11, "obstacles": 15, "point_threshold": 25}, # Level 5
-    {"speed": 13, "obstacles": 18, "point_threshold": 30}, # Level 6
-    {"speed": 15, "obstacles": 20, "point_threshold": 35}, # Level 7
-    {"speed": 17, "obstacles": 22, "point_threshold": 40}, # Level 8
-    {"speed": 19, "obstacles": 25, "point_threshold": 45}, # Level 9
-    {"speed": 21, "obstacles": 27, "point_threshold": 50}, # Level 10
+    {"speed": 7, "obstacles": 10, "point_threshold": 15},  # Level 3
+    {"speed": 9, "obstacles": 13, "point_threshold": 20},  # Level 4
+    {"speed": 11, "obstacles": 15, "point_threshold": 25},  # Level 5
+    {"speed": 13, "obstacles": 18, "point_threshold": 30},  # Level 6
+    {"speed": 15, "obstacles": 20, "point_threshold": 35},  # Level 7
+    {"speed": 17, "obstacles": 22, "point_threshold": 40},  # Level 8
+    {"speed": 19, "obstacles": 25, "point_threshold": 45},  # Level 9
+    {"speed": 21, "obstacles": 27, "point_threshold": 50},  # Level 10
 ]
+
 
 def game_loop():
     global current_level, current_score, total_score
@@ -143,7 +156,7 @@ def game_loop():
         food = ()
         while food == () or food in snake or food[0] <= 1 or food[1] <= 1 or food[0] >= WINDOW_HEIGHT - 2 or food[1] >= WINDOW_WIDTH - 2:
             food = (randint(2, WINDOW_HEIGHT - 3), randint(2, WINDOW_WIDTH - 3))
-       # Use parameters from the current level
+        # Use parameters from the current level
         level_params = LEVELS[current_level]
         snake_speed = level_params["speed"]
         num_obstacles = level_params["obstacles"]
@@ -178,7 +191,7 @@ def game_loop():
                 if paused:
                     continue  # Skip game if paused
 
-                # Game bug error fixed when two buttons pressed caused instant game over
+                # Prevents crash on simultaneous button press
                 if (event == curses.KEY_LEFT and key == curses.KEY_RIGHT) or \
                    (event == curses.KEY_RIGHT and key == curses.KEY_LEFT) or \
                    (event == curses.KEY_UP and key == curses.KEY_DOWN) or \
@@ -242,7 +255,8 @@ def game_loop():
                     food = ()
                     while food == () or food in snake or food in obstacles or food[0] <= 1 or food[1] <= 1 or food[0] >= WINDOW_HEIGHT - 2 or food[1] >= WINDOW_WIDTH - 2:
                         food = (randint(2, WINDOW_HEIGHT - 3), randint(2, WINDOW_WIDTH - 3))
-                    win.addch(food[0], food[1], '@', curses.color_pair(2))  # Draw new food in red color
+                        # Draw new food in red color
+                    win.addch(food[0], food[1], '@', curses.color_pair(2))
                 else:
                     # Move snake
                     last = snake.pop()
@@ -254,12 +268,12 @@ def game_loop():
                 # Redraw borders
                 draw_borders(total_score)
 
-                # Draw food
-                win.addch(food[0], food[1], '@', curses.color_pair(2))  # Draw food in red color
+                # Draw food in red color
+                win.addch(food[0], food[1], '@', curses.color_pair(2))
 
-                # Draw obstacles
+                # Draw obstacles in yellow color
                 for obstacle in obstacles:
-                    win.addstr(obstacle[0], obstacle[1], 'X', obstacle_color_pair)  # Draw obstacle in yellow color
+                    win.addstr(obstacle[0], obstacle[1], 'X', obstacle_color_pair)
 
                 # Draw snake head with green color
                 win.addstr(snake[0][0], snake[0][1], 'O', snake_color_pair)
@@ -281,9 +295,10 @@ def game_loop():
                         level_up_message = "You have reached the maximum level!"
                     draw_level_message(level_up_message)
 
-                    return True  # Return True to break out of the current game loop
+                    return True
 
     return False  # Game over, return to intro
+
 
 def draw_level_message(message):
     # Clear the screen
@@ -297,6 +312,7 @@ def draw_level_message(message):
     win.addstr(y_center, x_center, message, curses.A_BOLD)
     win.refresh()
     time.sleep(2)  # Wait for 2 seconds
+
 
 def flash_object(obj):
     for _ in range(4):
@@ -312,6 +328,7 @@ def flash_object(obj):
         win.refresh()
         time.sleep(0.1)
 
+
 while True:
     draw_intro()
     key = win.getch()
@@ -321,7 +338,8 @@ while True:
         current_level = 0  # Reset the level
         current_score = 0  # Reset the score
         total_score = 0    # Initialize total score
-        while game_loop():  # Keep starting new games until the player decides to exit
+        # Keep starting new games until the player decides to exit
+        while game_loop():
             pass
     elif key == 27:  # Esc key during intro screen
         break
