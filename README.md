@@ -1,6 +1,6 @@
  # Snake Game
 
- ![Am I Responsive_](https://github.com/naomi-mali/test/assets/148251951/aae6af93-e1ba-4857-b57b-1b03f95c04ac)
+![Am I Responsive_ (1)](https://github.com/naomi-mali/test/assets/148251951/0d24799d-ea8a-4e19-977f-d1dc6512df6b)
 
 
 ## Project Overview
@@ -19,12 +19,19 @@ Overall, this classic snake game offers a blend of simplicity, challenge, and no
 7. [Gameplay-Mechanics] (#gameplay-mechanics)
 8. [User-Experience] (#user-experience)
 9. [Replayability] (#replayability)
-10. [] (#)
-11. [] (#)
-12. [] (#)
-13. [] (#)
-14. [] (#)
-
+10. [Flow-Chart] (#flow-chart)
+11. [Languages-used] (#languages-used)
+12. [Software-used] (#software-used)
+13. [Testing-and-known-issues] (#testing-and known-issues)
+14. [Testing] (#testing)
+15. [Manual-testing] (#manual-testing)
+16. [Solved-bugs] (#solved-bugs)
+17. [Terminal-Screen-Flickering] (#terminal-screen-flickering)
+18. [Deployment] (#deployment )
+19. [Future-Development-Opportunities] (#future-development-opportunities)
+20. [Credits] (#credits)
+21. [Learning-materials-and-Code] (#learning-materials-and-code)
+22. [Acknowledgments] (#acknowledgments)
 
 
 This game is a classic snake game implemented using the curses library in Python. Here's a description of the game:
@@ -95,7 +102,7 @@ Ci Python Linter – To validate the python code.
 ## Testing and known issues
 ### Testing
 
-    The code has been submitted to the Code Institute PEP8 lint and all major issues were fixed. The ones that remain are due to strings being too long, or a character in a docstring that the lint recognizes erroneously as an escape character. With regard to the strings length, it has been decided that they are to remain as is for design purposes.
+The code has been submitted to the Code Institute PEP8 lint and all major issues were fixed. The ones that remain are due to strings being too long, or a character in a docstring that the lint recognizes erroneously as an escape character. With regard to the strings length, it has been decided that they are to remain as is for design purposes.
 
 ### Manual testing
 I have tested all input options, valid input and non-valid input by the user. These tests were carried out throughout the entire project process. Finally, no more errors occurred. The detailed error messages to the user are also explained in the features section. A description of the bugs can be found in solved and unsolved bugs.
