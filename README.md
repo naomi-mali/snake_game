@@ -70,11 +70,21 @@ Borders and UI elements are drawn using ASCII characters to create a visually ap
 Text-based messages are displayed for intro, level up, and game over screens.
 Colors are used to distinguish different elements on the game board, such as the green color for the snake, red color for food, and yellow color for obstacles, making it visually appealing and easy to identify each component.
 
+![README md - snake_game - Gitpod Code](https://github.com/naomi-mali/test/assets/148251951/905f4783-582b-402b-ae14-2a4abbc73d40)
+
+![run py - snake_game - Gitpod Code (2)](https://github.com/naomi-mali/test/assets/148251951/bf63bd98-72da-4249-9c9b-8c68f854f12c)
+
+
 ### Gameplay Mechanics:
 Snake Movement: The snake moves continuously in the direction specified by the player, and its length increases each time it consumes food.
 Collision Detection: The game engine checks for collisions between the snake and various elements, including borders, obstacles, and itself, to determine if the game should continue or end.
 Difficulty Progression: As the player advances through levels, the game becomes progressively more challenging with faster snake movement speeds and an increased number of obstacles, requiring quicker reflexes and strategic maneuvering.
 Randomization: Food and obstacles are randomly positioned on the game board at the start of each level, ensuring a different gameplay experience each time.
+
+![run py - snake_game - Gitpod Code (1)](https://github.com/naomi-mali/test/assets/148251951/d9762c1d-a0e1-4e5e-9a7f-b76216265b2b)
+
+![run py - snake_game - Gitpod Code](https://github.com/naomi-mali/test/assets/148251951/0b5b72e8-beba-487a-a276-1a566c0b32ee)
+
 
 ### User Experience:
 Intuitive Controls: The controls for directing the snake are simple and intuitive, making it easy for players of all skill levels to pick up and play.
@@ -90,6 +100,7 @@ Endless Mode: While the game features predefined levels, players can continue pl
 
 ### Languages used
 Python is used for the project.
+
 
 ## Software used
 Draw.io - To create a Flow Chart. 
@@ -144,6 +155,9 @@ Search for the repository name and click on conncet.
 Select Enable Automatic Deploys"
 Click on "Deploy Branch"
 Click on the "View" button which leads to the deployed app
+
+![Python Terminal by Code Institute (2)](https://github.com/naomi-mali/test/assets/148251951/f58deda2-0140-47ed-8761-245007af5f2d)
+
 
 ## Future Development Opportunities 
 
