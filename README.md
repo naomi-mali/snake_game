@@ -32,7 +32,7 @@ Overall, this classic snake game offers a blend of simplicity, challenge, and no
 20. [Credit](#credits)
 21. [Learning materials and Code](#learning-materials-and-code)
 22. [Acknowledgments](#acknowledgments)
-
+23. [Forking/Cloning](#forking/cloning)
 
 This game is a classic snake game implemented using the curses library in Python. Here's a description of the game:
 
@@ -203,6 +203,11 @@ Tutorial or Help Section: Include a tutorial or help section within the game to 
 Bug Fixes and Performance Optimization: Continuously test and debug the game to fix any issues or bugs. Additionally, optimize the code for better performance, especially for larger game states or when running on lower-end systems.
 
 Implementing some or all of these features can greatly enhance the gameplay experience and make the Snake game more engaging and enjoyable for players.
+
+### Forking/Cloning
+To create a fork for this repository:
+
+Navigate to the url - https://github.com/naomi-mali/snake_game In the top right corner, click on the Fork dropdown. Create a new fork Name the repository and/or give it a description - Click create fork. You have now created a fork of this repository!
 
 ## Credits
 
