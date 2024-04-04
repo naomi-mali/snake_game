@@ -91,6 +91,25 @@ Intuitive Controls: The controls for directing the snake are simple and intuitiv
 Clear Feedback: Visual feedback is provided to the player through changes in the game board, such as the snake's movement, score updates, and the appearance of level up and game over messages, ensuring a clear understanding of the game state.
 Engaging Audiovisuals: While the game is text-based, the combination of ASCII art, colors, and animations creates an immersive experience for the player, enhancing their engagement and enjoyment.
 
+![Python Terminal by Code Institute (1)](https://github.com/naomi-mali/test/assets/148251951/26c2e092-d703-4f1a-8a63-079c1159a26e)
+
+The intro page of the Snake game presents players with a visually engaging screen that not only sets the tone for the game but also provides essential instructions on how to play. Here's a description of what the intro page contains:
+
+Title and ASCII Art: At the top of the intro page, there's a prominent title rendered in ASCII art. The title is stylized to grab the player's attention and convey the theme of the game.
+
+Snake and Food ASCII Art: Alongside the title, there are ASCII art representations of a snake and food item. These visual elements give players a glimpse of what to expect in the game and reinforce the theme of controlling a snake to eat food.
+
+Control Instructions: Below the ASCII art, there's a section dedicated to control instructions. It informs players about the keys they need to use to interact with the game. For example:
+
+"Press Enter to Play": Instructs players to press the Enter key to start playing the game.
+"Press Space to Pause": Indicates that the Space key can be used to pause or resume the game.
+"Press Esc to Exit": Notifies players that they can press the Esc key to exit the game.
+"Eat @ to level up": Provides a specific gameplay instruction, indicating that eating '@' symbols allows players to level up in the game.
+"Avoid X obstacles and borders to win": Advises players to avoid collision with 'X' symbols representing obstacles and the game borders to succeed in the game.
+Level and Objective Description: Optionally, the intro page may include a brief description of the game's objective and how players progress through levels. This description helps set player expectations and provides context for the gameplay.
+
+Overall, the intro page serves as an effective starting point for players, offering both visual appeal 
+
 ### Replayability:
 High Replay Value: The addictive nature of the gameplay, coupled with the desire to achieve higher scores and reach new levels, encourages players to replay the game multiple times.
 Endless Mode: While the game features predefined levels, players can continue playing indefinitely by starting new games after reaching the highest level, providing endless entertainment and challenge.
